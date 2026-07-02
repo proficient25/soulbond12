@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Musk</title>
+
+<!-- Fonts: Cormorant Garamond (romantic display serif), Poppins (clean body),
+     Noto Serif Bengali (for the Bengali shayaris) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Poppins:wght@300;400;500;600&family=Noto+Serif+Bengali:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-light">
+
+  <!-- Ambient floating hearts / stardust live in this layer -->
+  <div class="heart-field" id="heartField" aria-hidden="true"></div>
+
+  <!-- ===================== ENVELOPE / ENTRY SCREEN ===================== -->
+  <div class="seal-screen" id="sealScreen">
+    <div class="envelope-wrapper" id="envelopeWrapper">
+      <div class="envelope" id="envelope">
+        <div class="envelope-flap" id="envelopeFlap"></div>
+        <div class="envelope-body"></div>
+        <div class="envelope-letter" id="envelopeLetter">
+          <div class="letter-preview">
+            <p class="letter-greeting">Dearest Musk,</p>
+            <p class="letter-teaser">A small piece of my heart, kept safe for you. Click below to open...</p>
+          </div>
+        </div>
+        <button class="wax-seal" id="waxSeal" aria-label="Open your letter">
+          <span class="seal-heart">♥</span>
+        </button>
+      </div>
+      <p class="seal-label">a letter for<br><span>Musk</span></p>
+      <p class="seal-hint">tap the seal to open</p>
+    </div>
+  </div>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main id="mainContent" class="hidden">
+
+    <!-- ---------- Header ---------- -->
+    <header class="header">
+      <div class="header-inner">
+        <span class="logo">For Musk 💖</span>
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <span class="theme-icon-light">☀️ Light</span>
+          <span class="theme-icon-dark hidden-icon">🌙 Midnight</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ---------- Welcome / Hero ---------- -->
+    <section class="hero" id="hero">
+      <div class="hero-inner">
+        <p class="eyebrow fade-in-scroll">for the girl who reads this</p>
+        <h1 class="hero-title fade-in-scroll">
+          Dear <span class="script">Musk</span>,
+        </h1>
+        <p class="hero-message fade-in-scroll">
+          Some people come into your life quietly, and somehow rearrange
+          everything anyway. This little page is my way of saying —
+          the world feels warmer with you in it. Every word here
+          was written with you in mind.
+        </p>
+        <div class="hero-divider fade-in-scroll" aria-hidden="true">
+          <svg viewBox="0 0 200 20" class="squiggle"><path d="M0 10 Q 25 0, 50 10 T 100 10 T 150 10 T 200 10" /></svg>
+        </div>
+        <p class="scroll-cue fade-in-scroll">scroll down, Musk</p>
+      </div>
+    </section>
+
+    <!-- ---------- Shayari / Poetry Section ---------- -->
+    <section class="shayari-section" id="shayari">
+      <p class="eyebrow center fade-in-scroll">a few lines, just for you</p>
+      <h2 class="section-title fade-in-scroll">Words I Couldn't Say Out Loud</h2>
+
+      <div class="shayari-stage fade-in-scroll">
+        <div class="book-container">
+          <div class="book-spine"></div>
+          <div class="book-page left-page">
+            <div class="page-content">
+              <span class="page-heading">A Quiet Confession</span>
+              <div class="page-divider-dots">✦ ✦ ✦</div>
+              <p class="page-message-static">Every line written on the opposite page holds a little pieces of my heart, translating thoughts I could never say out loud into words for you.</p>
+              <div class="page-flourish">❀</div>
+            </div>
+          </div>
+          <div class="book-page right-page" id="shayariCard">
+            <div class="page-content">
+              <div class="shayari-lang-badge" id="shayariLang">English</div>
+              <p class="shayari-text" id="shayariText"></p>
+              <div class="page-number" id="pageNumber">1</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shayari-controls">
+          <button id="prevShayari" class="nav-btn" aria-label="Previous">‹</button>
+          <div class="shayari-progress" id="shayariProgress" aria-hidden="true"></div>
+          <button id="nextShayari" class="nav-btn" aria-label="Next">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- Gallery Deck ---------- -->
+    <section class="gallery-section" id="gallery">
+      <p class="eyebrow center fade-in-scroll">moments, kept safe</p>
+      <h2 class="section-title fade-in-scroll">Our Memory Lane</h2>
+      <p class="gallery-subtitle fade-in-scroll">Hover & drag to rearrange. Click a polaroid to reveal the memory on the back.</p>
+
+      <div class="gallery-deck fade-in-scroll" id="galleryDeck">
+        <!-- Polaroid 1: Musk's Photo -->
+        <div class="polaroid-wrapper drag-polaroid" style="--rot: -5deg; --x: -30px; --y: 10px; z-index: 3;">
+          <div class="polaroid-card">
+            <div class="polaroid-side polaroid-front">
+              <img src="images/musk-1.jpeg" alt="A photo of Musk" id="galleryImg"
+                   onerror="this.closest('.polaroid-wrapper').classList.add('img-missing')">
+              <div class="polaroid-fallback" aria-hidden="true">♡</div>
+              <p class="polaroid-caption">you, always</p>
+            </div>
+            <div class="polaroid-side polaroid-back">
+              <div class="back-content">
+                <p class="handwritten-date">September 12</p>
+                <p class="handwritten-note">Of all the moments in my life, the ones spent sharing laughs with you are truly special. Your smile lights up even the darkest days.</p>
+                <span class="back-heart">♥</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Polaroid 2: Stargazing -->
+        <div class="polaroid-wrapper drag-polaroid" style="--rot: 4deg; --x: 40px; --y: -20px; z-index: 2;">
+          <div class="polaroid-card">
+            <div class="polaroid-side polaroid-front">
+              <img src="images/watercolor-stars.jpg" alt="Stargazing Illustration">
+              <p class="polaroid-caption">under the stars</p>
+            </div>
+            <div class="polaroid-side polaroid-back">
+              <div class="back-content">
+                <p class="handwritten-date">October 4</p>
+                <p class="handwritten-note">If I had a star for every time you made me smile, we'd be standing under a sky of infinite starlight. Grateful for our bond.</p>
+                <span class="back-heart">♥</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Polaroid 3: Coffee Cozy -->
+        <div class="polaroid-wrapper drag-polaroid" style="--rot: -2deg; --x: 5px; --y: -40px; z-index: 1;">
+          <div class="polaroid-card">
+            <div class="polaroid-side polaroid-front">
+              <img src="images/watercolor-coffee.jpg" alt="Cozy Coffee Illustration">
+              <p class="polaroid-caption">cozy coffee dates</p>
+            </div>
+            <div class="polaroid-side polaroid-back">
+              <div class="back-content">
+                <p class="handwritten-date">November 20</p>
+                <p class="handwritten-note">Warm coffee, cold mornings, and endless conversations with you. That's my definition of a perfect day.</p>
+                <span class="back-heart">♥</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- Interactive Letters Box ---------- -->
+    <section class="letters-section" id="letters">
+      <p class="eyebrow center fade-in-scroll">sealed with love</p>
+      <h2 class="section-title fade-in-scroll">Letters from the Heart</h2>
+      <p class="letters-subtitle fade-in-scroll">A collection of quiet thoughts. Click any letter to break the seal and read.</p>
+
+      <div class="letters-grid fade-in-scroll">
+        <!-- Letter 1 -->
+        <div class="letter-envelope" data-letter="1">
+          <div class="letter-flap"></div>
+          <div class="letter-seal">♥</div>
+          <div class="letter-label">The First Spark</div>
+        </div>
+        <!-- Letter 2 -->
+        <div class="letter-envelope" data-letter="2">
+          <div class="letter-flap"></div>
+          <div class="letter-seal">♥</div>
+          <div class="letter-label">Why You're Special</div>
+        </div>
+        <!-- Letter 3 -->
+        <div class="letter-envelope" data-letter="3">
+          <div class="letter-flap"></div>
+          <div class="letter-seal">♥</div>
+          <div class="letter-label">Our Promises</div>
+        </div>
+      </div>
+
+      <!-- Letter Modal -->
+      <div class="letter-modal-overlay" id="letterModal">
+        <div class="letter-modal-card">
+          <button class="modal-close-btn" id="closeLetterBtn" aria-label="Close Letter">&times;</button>
+          <div class="modal-letter-content">
+            <p class="modal-date" id="modalDate">July 2, 2026</p>
+            <h3 class="modal-title" id="modalTitle">The First Spark</h3>
+            <div class="modal-body-text" id="modalBodyText">
+              <!-- Inserted by JS -->
+            </div>
+            <p class="modal-signature">— your friend, always</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- Music Player ---------- -->
+    <section class="music-section" id="music">
+      <p class="eyebrow center fade-in-scroll">our soundtrack</p>
+      <h2 class="section-title fade-in-scroll">Music For Us</h2>
+      <div class="music-card fade-in-scroll">
+        <div class="vinyl-wrapper">
+          <div class="vinyl" id="vinyl">
+            <div class="vinyl-center"></div>
+          </div>
+          <div class="music-needle" id="musicNeedle"></div>
+        </div>
+        <div class="music-info">
+          <p class="music-eyebrow">now playing</p>
+          <p class="music-title" id="musicTrackTitle">Our Song</p>
+          
+          <!-- soundwave visualizer bars -->
+          <div class="soundwave-visualizer" id="soundwave">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+
+          <div class="player-controls">
+            <button id="playPauseBtn" class="play-btn" aria-label="Play music">
+              <svg id="iconPlay" viewBox="0 0 24 24" width="18" height="18"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+              <svg id="iconPause" viewBox="0 0 24 24" width="18" height="18" class="hidden-icon"><path d="M6 5h4v14H6zM14 5h4v14h-4z" fill="currentColor"/></svg>
+            </button>
+            <div class="volume-control">
+              <span class="volume-icon">🔊</span>
+              <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.6" class="volume-slider">
+            </div>
+          </div>
+        </div>
+      </div>
+      <audio id="bgAudio" loop preload="none">
+        <source src="audio/our-song.mp3" type="audio/mpeg">
+      </audio>
+    </section>
+
+    <!-- ---------- Footer ---------- -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <svg viewBox="0 0 200 20" class="squiggle footer-squiggle" aria-hidden="true"><path d="M0 10 Q 25 0, 50 10 T 100 10 T 150 10 T 200 10" /></svg>
+        <p class="footer-message">
+          Whatever today held — I hope this made you smile, even a little.
+          Thank you for being exactly who you are.
+        </p>
+        <p class="footer-sign">— always, with love</p>
+      </div>
+    </footer>
+
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
